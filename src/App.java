@@ -1,6 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class App {
 
@@ -12,11 +12,11 @@ public class App {
         // create a list of top 5 things
         // --- TO DO: Change to your own list ---
         String[] top5 = {
-            "1. Coding",
-            "2. Music",
-            "3. Movies",
-            "4. Sports",
-            "5. Travel"
+            "1. Sports",
+            "2. Eating",
+            "3. Travel",
+            "4. Grades",
+            "5. Sleep",
         };
 
          // A JFrame is a window where we can design our UI
@@ -28,7 +28,17 @@ public class App {
         JButton nextButton = new JButton("Next");
         JLabel outputLabel = new JLabel();
         // --- TO DO: create a back button, format, and add it to the frame ---
+        JButton backButton = new JButton("Back");
+        backButton.setBounds(250, 200, 100, 50);
+        frame.add(backButton);
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                currentIndex = getPreviousIndex(currentIndex, top5.length);
+                outputLabel.setText(top5[currentIndex]);
+            }    
+        });
 
+        
         // place and size for components
         // setBounds(x position, y position, width, height)
         nextButton.setBounds(100, 200, 100, 50);
@@ -80,6 +90,13 @@ public class App {
      * @param listLength
      * @return previous index
      */
-    
+        public static int getPreviousIndex(int currentIndex, int listLength) {
+            if (currentIndex == 0) {
+                return listLength - 1; // wrap around to the end
+            }
+            else {
+                return currentIndex - 1; // move to the previous index
+            }
+        }
 }
 
