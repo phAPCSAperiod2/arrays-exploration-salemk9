@@ -58,11 +58,7 @@ public class App {
         public void actionPerformed(ActionEvent e) {
             currentIndex = getNextIndex(currentIndex, top5.length);
             outputLabel.setText(top5[currentIndex]);
-        }    });
-
-        // --- TO DO: add event listener for back button ---
-        // --- TO DO: create a getPreviousIndex function, see below ---
-
+        }    });        
 
         // make the frame visible
         frame.setVisible(true);
